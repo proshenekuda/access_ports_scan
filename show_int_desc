@@ -1,0 +1,9 @@
+Value PORT (\B\d+\/\d+(\/\d+)?)
+#Value DESCRIPTION (\b\w+(.*|-.*|\s.*))
+Value Status ((up)|(admin\sdown))
+Value Protocol (up|down)
+Value DESCRIPTION (.*)
+
+
+Start
+  ^.*${PORT}\s+${Status}+${Protocol}+${DESCRIPTION} -> Record

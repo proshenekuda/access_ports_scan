@@ -1,0 +1,7 @@
+Value INTERFACE ((?<=Vlan)\d+)
+Value SB (10\.\d+.\d+.\d+)
+Value VRIP (10\.\d+.\d+.\d+)
+
+Start
+#  ^\s+Interface\s+Grp\s+Prio\sP\sState\s+Active\saddr\s+Standby\saddr\s+Group\saddr -> Continue
+  ^.*${INTERFACE}\s+(\w+\s+)+${SB}\s+${VRIP} -> Record

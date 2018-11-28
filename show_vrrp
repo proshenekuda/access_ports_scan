@@ -1,0 +1,8 @@
+Value INTERFACE ((?<=Vlan)\d+)
+#Value INTERFACE ([Vlan]\d+)
+#Value State (Master|Backup)
+Value VRIP (.*)
+
+Start
+  ^\s+Interface\s+VR\s+IpVersion\s+Pri\s+Time\s+Pre\s+State\s+Vr\sIP\saddr -> Continue
+  ^.*${INTERFACE}\s+(\w+\s+)+${VRIP} -> Record

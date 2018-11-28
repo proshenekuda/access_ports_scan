@@ -1,0 +1,9 @@
+Value PORT (^\b.+Ethernet\d(\/.*\d)?)
+Value INPUT ((?<=Last\sinput\s)((\d+:\d+:\d+)|(never)|(\d+w\d+d)|(\d+d\d+h)|(\d+y\d+w)))
+Value OUTPUT ((?<=output\s)((\d+:\d+:\d+)|(never)|(\d+w\d+d)|(\d+d\d+h)|(\d+y\d+w)))
+#Value STATUS (admin\sdown|down|up)
+#Value DESCRIPTION (.*)
+
+Start
+  ^.*${PORT} -> Continue
+  ^.*${INPUT},\s+\w+\s+${OUTPUT} -> Record
